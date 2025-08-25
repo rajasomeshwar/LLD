@@ -1,7 +1,7 @@
 
 public interface Board {
 	
-	final static int EMPTY = -1 ;
+	int EMPTY = -1;
 	
 	public void printBoard();
 	
