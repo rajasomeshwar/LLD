@@ -1,0 +1,15 @@
+Problem: E-Commerce Restock Notification System
+
+Core Goal: Automatically notify interested customers when an out-of-stock product becomes available again.
+
+Requirements:
+    Product State:
+     A product tracks its stockCount (starts at 0) and a list of interested users.
+    User Actions: Customers can subscribe to or unsubscribe from alerts for a specific product.
+    Restock Trigger: Adding inventory (addStock(int quantity)) transitions the product from out-of-stock (0) to in-stock (greater than 0).
+
+Notification Channels:
+    Email Alert: Sends an email notification to subscribed users.
+    SMS Alert: Sends a text message to subscribed users.
+    App Push Alert: Sends a mobile push notification to subscribed users.
+    Constraint: Notifications should only fire when stock changes from 0 to greater than 0 (not when adding more stock to an already available item), and new notification channels must be pluggable without changing the product class.

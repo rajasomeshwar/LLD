@@ -1,0 +1,61 @@
+Problem :
+   Whennever the Stock is out of stock becomes available we need notify interested customers.
+
+Requirement :
+      Product State : current State of product
+      User Action : Client will have interest in Stock notification at anytime he will not interested.
+      Restock Trigger : adding inventory with some quantity
+
+      Each User : different notification channels
+
+ Clarification :
+    Does each user have only one Notification channels?
+      => Yes each user can have multiple channel notify
+    Only User will just notification from stock when it was empty to available
+     => Yes
+
+    Does each user can associated with multiple stocks
+     => Yes
+
+ Entities :
+    1. Stock  ( Class )
+       - ProductName String
+       - currentlyAvailable Int
+       - stockPublisher notify
+
+    7. StockPublisher
+       List<Activity> activies
+       subscribe and unsubscribe
+
+    8. Activity (Interface)
+       + doWork(Stock changed)
+
+
+    9. Analyize (class) implements Activity
+
+    2. User implements doWork ( class )
+       - Name String
+       - Stock, Notification
+
+       doWork(Stock) => stocks. notification
+
+    3.   NotificationChannel  (Interface)
+       + notifyForStockAvailable(Stock this)
+
+    10. CompositeNotification (class) => noting
+        + notifyForStockAvailable(Stock this) => nothing
+
+    4. EmailNotification ( class )
+       - NotificationChannel parentChannel
+       + notifyForStockAvailabled(stock this)
+
+    5. SMSNotification ( class )
+        - NotificationChannel parentChannel
+        + notifyForStockAvailabled(stock this)
+
+    6. MobileNotification ( class )
+        - NotificationChannel parentChannel
+        + notifyForStockAvailabled(stock this)
+
+Relation :
+
